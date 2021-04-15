@@ -10,7 +10,7 @@ const bodyParser = require('body-parser')
 // SET-UP MONGOOSE DB CONNECTIONS
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/exercise-track', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 // CHECK DB CONNECTION STATUS
-console.log('conn status:  '+mongoose.connection.readyState);
+// console.log('conn status:  '+mongoose.connection.readyState);
 
 app.use(cors())
 app.use(express.static('public'))
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 const listener = app.listen(process.env.PORT || 3000, () => {
-  console.log('Your app is listening on port ' + listener.address().port)
+//  console.log('Your app is listening on port ' + listener.address().port)
 })
 
 /*
@@ -126,12 +126,12 @@ app.get('/api/exercise/log', (req, res) => {
     if(req.query.to){
       toDate = new Date(req.query.to)
     }
-    console.log('fromDate: ', fromDate, "toDate: ", toDate)
+//    console.log('fromDate: ', fromDate, "toDate: ", toDate)
 
     fromDate = fromDate.getTime()
     toDate = toDate.getTime()
 
-    console.log('fromDate: ', fromDate, "toDate: ", toDate)
+//    console.log('fromDate: ', fromDate, "toDate: ", toDate)
 
     resObject.log = resObject.log.filter((activity) =>{
       let activityDate = new Date(activity.date).getTime()
